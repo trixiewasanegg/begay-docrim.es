@@ -119,8 +119,8 @@ async def microblogUpdate(self):
 		async for message in channelData.history(limit=100):
 			# Gets datetime datestamp of message, converts to datestamp:
 			date = message.created_at
-			date = date.replace(tzinfo=pytz.utc).astimezone(pytz.timezone('Australia/Perth'))
-			datestamp = f"\n_{date.strftime("%d %b %Y, %I:%M %p")} AWST_ <br /><br />"
+			date = date.replace(tzinfo=pytz.utc).astimezone(pytz.timezone('Australia/Perth')).strftime("%d %b %Y, %I:%M %p")
+			datestamp = f"\n_{date} AWST_ <br /><br />"
 			
 			# Gets message  message content and embeds
 			content = message.clean_content.replace("\n", "<br />")

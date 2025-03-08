@@ -1,6 +1,11 @@
 # BeGay-DoCrim.Es
 
-## v1.0 - Initial Release
+## v1.1 - Redesign 1
+
+### CHANGELOG:
+- Updates to formatting
+- Minor changes to discord bot
+- Move to new domain
 
 Repo for development of my blog, [begay-docrim.es](https://begay-docrim.es)
 

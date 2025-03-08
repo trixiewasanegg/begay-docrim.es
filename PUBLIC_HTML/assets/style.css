@@ -82,6 +82,9 @@ img {
     height: 50vh;
 }
 
+/* Sidebar styles */
+
+
 /*
         HOMEPAGE STYLES
 ===========================================================================================================================================================
@@ -268,19 +271,19 @@ img {
     width: 100%;
     text-align: center;
     background-color: var(--light-alt);
-}
 
-.postmeta > div {
-    padding: calc(var(--padding) *2);
+    div {
+        padding: calc(var(--padding) *2);
+    }
+
+    hr {
+        margin: 0px
+    }
 }
 
 .postBody {
     margin: var(--padding) 0px 0px 0px;
     background-color: var(--light-contrast);
-}
-
-.postmeta hr {
-    margin: 0px
 }
 
 .postcontent {
