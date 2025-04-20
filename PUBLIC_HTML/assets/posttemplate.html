@@ -24,17 +24,19 @@
 <body>
 <div class="container">
     <div class="sidebar"></div>
-    <div class="postBody">
-        <div class="postmeta">
-        <hr>
-        <div>
-            <h1 class="posttitle">{{title}}</h1>
-            <i>{{author}} | {{publishdate}}</i> 
-        </div>
-        <hr>
-        </div>
-        <div class="postcontent">
-        <md-block src="./content.md"></md-block>
+    <div class="main">
+        <div class="postBody contentContainer">
+            <div class="postmeta">
+            <hr>
+            <div>
+                <h1 class="posttitle">{{title}}</h1>
+                <i>{{author}} | {{publishdate}}</i> 
+            </div>
+            <hr>
+            </div>
+            <div class="postcontent">
+            <md-block src="./content.md"></md-block>
+            </div>
         </div>
     </div>
 </div>

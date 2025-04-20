@@ -345,7 +345,7 @@ async def socialsUpdate(self):
 		cur = con.cursor()
 		tbl = cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='socials';")
 		if len(tbl.fetchall()) == 0:
-			cur.execute("CREATE TABLE socials (ID INTEGER NOT NULL PRIMARY KEY, category, rank, site, desc, usr, url, img);")
+			cur.execute("CREATE TABLE socials (ID INTEGER NOT NULL PRIMARY KEY, category, rank, site, desc, usr NOT NULL DEFAULT '', url, img);")
 			con.commit()
 			print("Created table")
 		
@@ -371,8 +371,9 @@ async def socialsUpdate(self):
 				pass
 
 			for meta in msgContent.split("\n"):
-				typ = meta.split(": ")[0]
-				content = meta.split(": ")[1]
+				keyVal = meta.split(": ")
+				typ = keyVal[0]
+				content = keyVal[1]
 				sqlUpd = ""
 				match typ:
 					# While dealing with inserting the site's data, tells the image to be downloaded.
@@ -419,11 +420,7 @@ async def socialsUpdate(self):
 			category = entry[0]
 			site = entry[1]
 			desc = entry[2]
-			try:
-				l = len(entry[3])
-				usr = f"Username - {entry[3]}"
-			except:
-				usr = ""
+			usr = entry[3]
 			url = entry[4]
 			img = entry[5]
 			if category not in categories:
@@ -435,7 +432,7 @@ async def socialsUpdate(self):
 				catCount = catCount + 1
 			table = f"""<hr> <a href="{url}">
 <div class="fourtysixty stack">
-<div class="first"> <img src="{img}" alt="{site} logo"> </div>
+<div class="first"> <div class="flxcenter"> <img src="{img}" alt="{site} logo"> </div> </div>
 <div class="second"> <h2>{site}</h2> <h3><i>{usr}</i></h3> <p>{desc}</p> </div>
 </div></a>
 """

@@ -52,7 +52,14 @@ body {
     width: 100%;
     height: 100%;
 	display: grid;
-	grid-template-columns: 0.75fr 2fr;
+}
+
+.container:not(.homeContainer) {
+    grid-template-columns: 80px auto;
+}
+
+.homeContainer{
+    grid-template-columns: 0.75fr 2fr;
 }
 
 /* Titles */
@@ -83,7 +90,48 @@ img {
 }
 
 /* Sidebar styles */
+.sidebar {
+    width: 80px;
+    background-color: var(--light-contrast-1);
+    height: 100vh;
+    color: var(--mainColor);
+    .navBar{
+        .navBarTitle {
+            font-weight: 600;
+        }
+        height:100%;
+        width: 60px;
+        margin: 0;
+        list-style-type: none;
+        padding: 0 10px;
+        li {
+            a {
+                color: var(--mainColor);
+            }
 
+            a:hover {
+                text-decoration: underline;
+            }
+            writing-mode: sideways-lr;
+            padding: 20px 0;
+            width: 100%;
+            font-size: 20px;
+            p {
+                text-align: center;
+                margin: 0 18px;
+            }
+        }
+    }
+}
+
+.flxcenter{
+    height: 100%;
+    width: 100%;
+    padding: 0 !important; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /*
         HOMEPAGE STYLES
@@ -179,11 +227,11 @@ img {
     overflow: hidden;
     flex-direction: column;
     height: 100vh;
-    .postContainer {
+    .contentContainer {
         display: flex;
         flex-direction: column;
         height: 100%;
-        overflow-y: auto;
+        overflow-y: scroll;
         -ms-overflow-style: thin;  /* IE and Edge */
         scrollbar-width: thin;  /* Firefox */        
     }
@@ -282,13 +330,15 @@ img {
 }
 
 .postBody {
-    margin: var(--padding) 0px 0px 0px;
-    background-color: var(--light-contrast);
+    background-color: var(--light-alt-2);
 }
 
 .postcontent {
-    max-width: 1100px;
+    max-width: 900px;
     margin: auto;
+    a {
+        text-decoration: underline;
+    }
 }
 
 /*
@@ -369,7 +419,6 @@ md-block blockquote br {
     }
     .collapse-content {
         display: none;
-        overflow: hidden;
         background-color: var(--light-contrast);
     }
 
@@ -387,17 +436,13 @@ md-block blockquote br {
 
     img {
         max-height: 80%;
+        height: auto;
+        max-width: 100%;
         width: auto;
     }
 
     a {
         text-decoration: none;
         color: #000000;
-    }
-    
-    @media screen and (max-width: 600px) {
-        div {
-            overflow: hidden;
-        }
     }
 }
